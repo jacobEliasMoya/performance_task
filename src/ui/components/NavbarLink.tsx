@@ -1,12 +1,14 @@
 import React from 'react';
 
-const NavbarLink = ({text}: {text: string}): JSX.Element => {
+export const NavbarLink = ({text}: {text: string}): JSX.Element => {
 
     return (
-        <li className='nav-item'>
+        // slight edit to class for movile navigation toggle
+        <li className='nav-item shrink squished'>
             <a href="#" className="nav-link">{text}</a>
         </li>
     );
 };
+
 
 export default NavbarLink;

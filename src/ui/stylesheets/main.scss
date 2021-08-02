@@ -1,0 +1,1159 @@
+// DONT TOUCH
+@mixin flexCol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column ;
+}
+// DONT TOUCH
+@mixin flexRow {
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row ;
+}
+// DONT TOUCH
+@mixin fullScreener {
+    min-height: 100vh;
+    min-width: 100%;
+}
+// DONT TOUCH
+@mixin animationInfo{
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+// DONT TOUCH
+@mixin absCentered {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+@font-face { 
+    font-family: Motor-Oil; 
+    src: url('../../assets/fonts/MotorOil1937M54.woff');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
+
+$primaryColor: #D5D5D5;
+$secondaryColor: #65747B;
+$tertiaryColor: #6E7182;
+$fourthColor: #3B3E53;
+$gradient1: #D4B991;
+$gradient2: #D4B991;
+// scroll bars stylings
+/* width */
+
+::-webkit-scrollbar {
+    width: 2rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    transition: all ease .5s !important;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: $fourthColor;
+    height: 5rem;
+    cursor: pointer;
+    border: .25rem solid white;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: $tertiaryColor;
+}
+
+
+#root{
+    @include fullScreener();
+    overflow: hidden;
+    .App{
+        position: relative;
+        overflow: hidden;
+        .overlay{
+            position: fixed;
+            @include fullScreener();
+            @include flexRow();
+            top: 0;
+            z-index: 100;
+            background-color: rgb(24, 24, 24);
+            color: white;
+            font-size: 6vw;
+            perspective: 100vw;
+            animation: outtaFrame 4.5s 1 forwards;
+            height: inherit;
+
+            img{
+                position: absolute;
+                @include absCentered();
+                opacity: .03;
+            }
+            span{
+                transition: all ease .5s;
+                font-family: Motor-Oil !important; 
+                letter-spacing: 1vw;
+                transform: translateZ(100vw);
+                animation: dropIn 3s 1 forwards;
+            }
+            .item8,.item7{
+                color: rgb(187, 187, 187);
+                font-size: 8vw;
+            }
+        }
+        @include fullScreener();
+        @include flexRow();
+        justify-content: space-between;
+        background: $fourthColor;
+        perspective: 100vw;
+        overflow: hidden;
+        .nav-main{
+            background: $primaryColor;
+            border-right: 1rem solid $tertiaryColor;
+            min-height: 100vh;
+            text-transform: uppercase;
+            min-width:15%;
+            .container{
+                min-height: 100vh;
+                @include flexCol();
+                justify-content: space-between;
+                position: relative;
+                .navbar-brand{
+                    text-align: center;
+                    font-family: Motor-Oil;
+                    font-size: 1.75rem;
+                    font-weight: 600;
+                    background-color: $tertiaryColor;
+                    width: 100%;
+                    padding:2rem 0rem;
+                    letter-spacing: 6px;
+                    color: white;
+                    @include flexRow();
+                    position: relative;
+                    span{
+                        font-family: Motor-Oil;
+                    }
+                    .ed{
+                        font-size: 2.25rem;
+                        color: $fourthColor;
+                    }
+                }
+
+                .navbar-nav{
+                    min-height:75vh;
+                    width: 100%;
+                    @include flexCol();
+                    justify-content: space-between;
+                    list-style-type: none;
+                    padding-top: .5rem !important;
+
+                    .nav-item:not(.show){
+
+                        a{
+                            transition: all ease .25s;
+                            color: $fourthColor;
+                            font-weight: bold !important;
+                            text-decoration: none ;
+                        }
+                        border-bottom: .2rem solid $tertiaryColor;
+                        width: 80%;
+                        text-align: center;
+                        padding: .5rem 1rem;
+                        cursor: pointer;
+                        transition: all ease .15s;
+                        &:hover{
+                            background-color: $tertiaryColor;
+                            border-bottom: .5rem solid $fourthColor;
+                            box-shadow: 0 .5rem 1rem $fourthColor;
+
+                            margin-bottom: -.3rem;
+                            width: 90%;
+                            a{
+                                color: white;
+                                font-weight: bold !important;
+                            }
+                        }
+                    }
+
+                    .show:not(.no){
+                        margin-bottom: 2rem;
+                        width: auto;
+                        height: auto;
+                        @include flexCol();
+                        .nav-link{
+                            @include flexRow();
+                            text-decoration: none;
+                            div{
+                                margin: 0px 1rem;
+                                color: white;
+                                @include flexCol();
+                                width: 5rem;
+                                height: 5rem;
+                                font-size: 2rem;
+                                background: $tertiaryColor;
+                                border-radius: 50%;
+                                font-family: Motor-Oil;
+                                overflow: hidden;
+                                position: relative;
+                                transition: all ease .25s;
+                                span{
+                                    transition: all ease .25s;
+                                    position: absolute;
+                                    @include absCentered();
+                                    margin-top: 100%;
+                                    font-size: 70%;
+                                }
+                                &:hover{
+                                    background: $fourthColor;
+                                    color: rgba(255, 255, 255, 0);
+                                    width: 5.5rem;
+                                    height: 5.5rem;
+                                    margin-top: -.5rem;
+                                    box-shadow: 0 .5rem 1rem $fourthColor;
+                                    span{
+                                        @include absCentered();
+                                        margin-top: 0%;
+                                        color: white;
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+                #mobilenavID{
+                    display: none;
+                }
+            }
+        }
+        .app-main{
+            min-width:85%;
+            @include flexCol();
+            position: relative;
+            perspective: 100vh;
+            .newUser.selected1{
+                margin-top: 0vh;
+                transform: none;
+                transform: translate(-50%,-50%);
+                opacity: 1;
+            }
+            .newUser{
+                z-index: 100;
+                @include absCentered();
+                background-color: rgba(255, 255, 255, 0.97);
+                border-radius: 5rem;
+                border: 2rem solid #6e7182b2;
+                @include flexCol();
+                justify-content: space-evenly;
+                overflow: hidden;
+                transition: all ease .5s;
+                height: 100%;
+                width: 50%;
+                margin-top: 150vh;
+                opacity: 0;
+                transform: translate(-50%,-50%) rotateX(-90deg);
+                box-shadow: 0 3rem 4rem 2rem rgba(0, 0, 0, 0.7);
+                form{
+                    @include flexCol();
+                    width: 100%;
+                    label{
+                        font-size: 1.25rem;
+                        &::after{
+                            color: red;
+                            content: ' *';
+                        }
+                    }
+                    label.error{
+                        color: red;
+                        &::after{
+                            content: ': Error, enter valid email!';
+                        }
+                    }
+                    label.errorName{
+                        color: red;
+                        &::after{
+                            content: ': Error, enter a name with no numbers';
+                        }
+                    }
+                    label.errorD{
+                        color: red;
+                        &::after{
+                            content: ': Select a district!';
+                        }
+                    }
+                    label.dropdownM{
+                        &::after{
+                            content: '';
+                        }
+                    }
+                    .dropdownMuser{
+                        &::after{
+                            content: '';
+                        }
+                    }
+                }
+
+                h2{
+                    font-size: 3.5vw;
+                    letter-spacing: 6px;
+                    color: $fourthColor;
+                    font-family: Motor-Oil;
+                    padding: 2rem; 
+                    border-top-left-radius: 2rem;
+                    border-top-right-radius: 2rem;
+                }         
+    
+                .idspan{
+                    @include flexCol();
+                    justify-content: space-between  ;
+                    align-items: flex-start;
+                    width: 63.75%;
+                    text-align: left;
+                    h4{ 
+                        @include flexRow();
+                        padding-bottom: .25rem;
+                        span{
+                            margin-left: 3px;
+                        }
+                    }
+                }
+                span{
+                    width: 100%;
+                    @include flexRow();
+                    button{
+                        width: 31%;
+                        padding: 1.5rem .75rem;
+                        font-size: 1.25rem;
+                        border: none;
+                        letter-spacing: 3px;
+                        transition: all ease .25s;
+                        cursor: pointer;
+                        color: $fourthColor;
+                        margin: 2rem .5rem;
+                        &:hover{
+                            color:black;
+
+                        }
+                    }
+                    .yes{
+                        background: rgb(107, 207, 107);
+                        &:hover{
+                            background: rgb(163, 255, 163);
+                        }
+                    }
+                    .no{
+                        background: rgb(236, 114, 100);
+                        &:hover{
+                        background: rgb(255, 150, 138);
+                        }
+                    }
+                }
+                @include flexCol();
+                label{
+                    font-size: 1.25rem;
+                    &::after{
+                        color: red;
+                        content: ' *';
+                    }
+                }
+                label.error{
+                    color: red;
+                    &::after{
+                        content: ': Error, enter valid email!';
+                    }
+                }
+                label.errorName{
+                    color: red;
+                    &::after{
+                        content: ': Error, enter a name with no numbers';
+                    }
+                }
+                label.errorD{
+                    color: red;
+                    &::after{
+                        content: ': Select a district!';
+                    }
+                }
+                label.dropdownM{
+                    &::after{
+                        content: '';
+                    }
+                }
+                input,select{
+                    width: 63.75%;
+                    font-size: 1.25rem;
+                    padding: .25rem 1rem;
+                    margin-bottom: 1rem;
+                    transition:all ease .25s;
+                    border: none;
+                    background-color: $primaryColor;
+                    &::placeholder{
+                        font-size: 1rem;
+                        text-align: center;
+                        color: rgb(173, 173, 173);
+                    }
+                    &:hover{
+                        background-color: rgb(179, 179, 179);
+                        &::placeholder{
+                            font-size: 1rem;
+                            text-align: center;
+                            color: black;
+                        }
+                    }
+                }
+            }
+
+            .app-admin-panel.selected{
+                transform: translateZ(-100vh);
+            }
+
+            .app-admin-panel{
+                margin-bottom: 0vh;
+                padding:1rem;
+                background: $primaryColor;
+                border:2rem solid $tertiaryColor;
+                border-radius: 5rem;
+                width: 90%;
+                transition:all ease .5s;
+
+                .admin-user-table{
+                    width: 100%;
+                    transition:all ease .5s;
+
+                    .inner-table{
+                        position: relative;
+                        transition:all ease .5s;
+                        perspective: 100vh;
+                        span{
+                            width: 100%;
+                            @include flexRow();
+                            justify-content: space-between;
+                            .filter-container{
+                                @include flexRow();
+                                justify-content: space-between;
+                                transform: translate(0,50%);
+                                select,input,button{
+                                    margin:0rem 1rem;
+                                    margin-right: 2rem;
+                                    cursor: pointer;
+                                }
+                                select,button{
+                                    width: auto;     
+                                    text-align: center;
+                                    font-size: 1.1rem;
+                                    padding: .25rem .5rem;
+                                    border: none;
+                                    option{
+                                        text-align: center;
+                                        font-size: 1.1rem;
+
+                                    }                               
+                                }
+                                button{
+                                    transition: all ease .25s;
+                                    &:hover{
+                                        background: rgb(236,114,100);
+                                        border-radius: .5rem;
+                                    }
+                                }
+                            }
+                            .add-new-user{
+                                @include flexRow();
+                                font-size: 1rem;
+                                bottom: 0;
+                                right: 0;
+                                transition:all ease .1s;
+                                transform: translate(0%,40%);
+
+                                i{
+                                    cursor: pointer;
+                                    @include flexRow();
+                                    border-radius:50%;
+                                    width: 2.5rem;
+                                    height: 2.5rem;
+                                    background: rgb(111, 111, 255);
+                                    color: white;
+                                    transition: all ease .25s;
+                                    &:hover{
+                                        font-size: 1.25rem;
+                                        background: rgb(64, 64, 253);
+                                    }
+                                }
+                                h4{
+                                    font-family: Motor-Oil; 
+                                    margin-right: 1rem;
+                                    color: $fourthColor;
+                                    transition: all ease .25s;
+                                }
+                                &:hover{
+                                    h4{
+                                        font-size: 1.25rem;
+                                    }
+                                }
+
+                            }
+                        }
+                        h2{
+                            width: 100%;
+                            background: $tertiaryColor;
+                            font-size: 2.5rem;
+                            letter-spacing: 6px;
+                            color: white;
+                            font-family: Motor-Oil;
+                            padding: 2rem; 
+                            border-top-left-radius: 2rem;
+                            border-top-right-radius: 2rem;
+                        }
+                        padding: 1rem;
+
+                        
+                        .delete-confirmation,.edit-confirmation{
+                            z-index: 100;
+                            @include absCentered();
+                            background-color: rgba(255, 255, 255, 0.97);
+                            border-radius: 5rem;
+                            border: 2rem solid #6e7182b2;
+                            @include flexCol();
+                            justify-content: space-evenly;
+                            overflow: hidden;
+                            transition: all ease .5s;
+                            height: 60%;
+                            width: 70%;
+                            opacity: 0;
+                            transform: translate(-50%,-50%) rotateX(90deg);
+                            margin-top: -200vh !important;
+
+                            span{
+                                width: 100%;
+                                @include flexRow();
+                                button{
+                                    width: 31%;
+                                    padding: 1.5rem .75rem;
+                                    font-size: 1.25rem;
+                                    border: none;
+                                    letter-spacing: 3px;
+                                    transition: all ease .25s;
+                                    cursor: pointer;
+                                    color: $fourthColor;
+                                    margin: 0rem .5rem;
+                                    &:hover{
+                                        color:black;
+
+                                    }
+                                }
+                                .yes{
+                                    background: rgb(107, 207, 107);
+                                    &:hover{
+                                        background: rgb(163, 255, 163);
+                                    }
+                                }
+                                .no{
+                                    background: rgb(236, 114, 100);
+                                    &:hover{
+                                    background: rgb(255, 150, 138);
+                                    }
+                                }
+                            }
+                            .newInformation{
+                                @include flexCol();
+                                width: 100%;
+                                label{
+                                    font-size: 1.25rem;
+                                    &::after{
+                                        color: red;
+                                        content: ' *';
+                                    }
+                                }
+                                label.error{
+                                    color: red;
+                                    &::after{
+                                        content: ': Error, enter valid email!';
+                                    }
+                                }
+                                label.errorName{
+                                    color: red;
+                                    &::after{
+                                        content: ': Error, enter a name with no numbers';
+                                    }
+                                }
+                                label.errorD{
+                                    color: red;
+                                    &::after{
+                                        content: ': Select a district!';
+                                    }
+                                }
+                                label.dropdownM{
+                                    &::after{
+                                        content: '';
+                                    }
+                                }
+                                input,select{
+                                    width: 63.75%;
+                                    font-size: 1.25rem;
+                                    padding: .25rem 1rem;
+                                    margin-bottom: 1rem;
+                                    transition:all ease .25s;
+                                    border: none;
+                                    background-color: $primaryColor;
+                                    &::placeholder{
+                                        font-size: 1rem;
+                                        text-align: center;
+                                        color: rgb(173, 173, 173);
+                                    }
+                                    &:hover{
+                                        background-color: rgb(179, 179, 179);
+                                        &::placeholder{
+                                            font-size: 1rem;
+                                            text-align: center;
+                                            color: black;
+                                        }
+                                    }
+                                }
+                            }
+                            box-shadow: 0 5rem 5rem 2rem rgba(0, 0, 0, 0.7);
+                        }
+                        .delete-confirmation.selected,.edit-confirmation.selected{
+                            opacity: 1;
+                            height: 60%;
+                            width: 70%;
+                            margin-top: 0vh !important;
+                            transform: translate(-50%,-50%) translateZ(50vh);
+
+                        }
+                        .edit-confirmation{
+                            height: 90% !important;
+                        }
+                        ul{
+                            width: 100%;
+                            max-height: 60vh;
+                            overflow: scroll;
+                            overflow-x: hidden;
+                            padding-right: 2rem;
+                            transition:all ease .5s;
+                            position: relative;
+
+
+                            .li.one{
+                                @include flexRow();
+                                width: 100%;
+                                 div{
+                                    @include flexRow();
+                                    width: 100%;
+                                    padding:1rem 0rem;
+                                    text-align: center;
+                                }
+                            }
+
+                            .user-data{
+                                @include flexCol();
+                                justify-content: space-between;
+                                transition:all ease .25s;
+                                margin-bottom: 1.5rem;
+                                background: white;
+                                padding-top: 0rem !important;
+                                transition:all ease .5s;
+                                overflow: hidden;
+                                height: auto;
+                                z-index: 1;
+                                position: relative;
+                                &:hover{
+                                    background: rgb(219, 238, 255);
+                                }
+                                &::after{
+                                    transition-delay: .25s !important;
+                                    transition: all ease 0s !important;
+                                    position: absolute;
+                                    opacity: 0;
+                                    left: 0;
+                                    top: 0;
+                                    padding: .25rem .5rem;
+                                    border-radius: 1rem;
+                                    background-color: rgb(173, 241, 173);
+                                    content:'Edited';
+                                    transform: translate(5%,15%);
+                                }
+
+                                div{
+                                    @include flexRow();
+                                    width: 100%;
+                                    position: relative;
+
+                                    div{
+                                        padding:1.5vh 0rem;
+                                        width: 100%;
+                                        text-align: center;
+                                    }
+
+                                }
+                                .control-buttons{
+                                    height: auto;
+                                    padding: 0rem 0rem;
+                                    button{
+                                        width: 80%;
+                                        padding: .5rem .75rem;
+                                        font-size: 1.25rem;
+                                        border: none;
+                                        letter-spacing: 3px;
+                                        transition: all ease .25s;
+                                        cursor: pointer;
+                                        color: $fourthColor;
+                                        &:hover{
+                                            color:black
+                                        }
+                                    }
+                                    .edit{
+                                        background: rgb(107, 207, 107);
+                                        &:hover{
+                                            background: rgb(163, 255, 163);
+                                        }
+                                    }
+                                    .del{
+                                        background: rgb(236, 114, 100);
+                                        &:hover{
+                                        background: rgb(255, 150, 138);
+                                        }
+                                    }
+                                }
+                            }
+
+                            .non-display{
+                                min-height: 0rem;
+                                max-height: 0rem;
+                                height: 0px !important;
+                                margin-bottom: 0rem;
+                                opacity: 0;
+                            }
+                            .non-display2{
+                                min-height: 0rem;
+                                max-height: 0rem;
+                                height: 0px !important;
+                                margin-bottom: 0rem;
+                                opacity: 0;
+                            }
+                            .display{
+                                display: flex ;
+                            }
+                            .to-be-deleted,.to-be-edited{
+                                opacity: 1;
+                            }
+                            .deleted,.edited{
+                                opacity: 0;
+                            }
+                            .gogreen{
+                                position: relative;
+                                overflow: visible;
+                                &::after{
+                                    opacity: 0;
+                                    transition: all ease 0s !important;
+                                    transition-delay: .5s !important;
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+
+    #mobilenavID{
+        display: flex !important;
+    }
+
+    .shrink.squished{
+        min-height: 0px !important;
+        height: 0px !important;
+        overflow: hidden;
+        padding: 0rem 0rem !important;
+
+        a{
+            display: none;
+        }
+    }
+
+    .edit-confirmation,.newUser,.delete-confirmation{
+        width: 100% !important;
+        h1{
+            text-align: center !important;
+        }
+    }
+    .newUser{
+        height: auto !important;
+        width:80% !important;
+    }
+    .inner-table{
+        padding: 0rem !important;
+        ul{
+            padding-right: 1rem !important;
+        }
+        h2{
+            text-align: center !important;
+            padding: 1rem !important;
+            padding-bottom: .5rem !important;
+        }
+    }
+
+    .app-main{
+        width: 100% !important;
+    }
+
+    .add-new-user{
+        height: 100% !important;
+        @include flexRow();
+        flex-direction: column !important;
+        width: 30%;
+        font-size: 1rem;
+        bottom: 0;
+        right: 0;
+        transition:all ease .1s;
+        transform: translate(0,0%) !important;
+        margin-top: 1rem !important;
+
+        i{
+            width: 70% !important;
+            height: 8vw !important;
+            font-size: 200% !important;
+            transform: none !important;
+            margin-top: 2rem;
+            border-radius: 1rem !important;
+        }
+        h4{
+            font-size: 2vw !important;
+            margin-right: 0rem !important;
+        }
+
+
+    }
+    span{
+        justify-content: space-evenly !important;
+        .filter-container{
+            width: 60% !important;
+            align-items: flex-start !important;
+            flex-direction: column !important;
+            justify-content: space-between;
+            transform: none !important;
+            margin-top: 1rem;
+            label{
+                margin-bottom: .25rem !important;
+            }
+            select,input,button{
+                margin:0rem 0rem !important;
+                margin-right: 0rem !important;
+                cursor: pointer;
+                border-radius: .5rem !important;
+            }
+            input{
+                zoom: 200%;
+            }
+            select,button{
+                width: 100% !important;
+                text-align: center;
+                font-size: 1.1rem;
+                padding: .25rem .5rem;
+                border: none;
+                option{
+                    text-align: center;
+                    font-size: 1.1rem;
+    
+                }                               
+            }
+            button{
+                transition: all ease .25s;
+                &:hover{
+                    background: rgb(236,114,100);
+                    border-radius: .5rem;
+                }
+            }
+        }
+    }
+
+    .App{
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+    }
+    .nav-main{
+        border-right: none !important;
+        min-height: 0vh !important;
+        min-width:100% !important;
+        margin-bottom: 3rem !important;
+        .container{
+            min-height: 0vh !important;
+            .navbar-brand{
+                width: 100% !important;
+                font-size: 1.25rem !important;
+                padding:1rem!important;
+                padding-left: 1.5rem !important;
+            }
+            .navbar-nav{
+                padding: 0rem 1rem !important;
+                padding-bottom: .5rem !important;
+                min-height:0vh !important;
+                // .nav-item{
+                //     font-size: .5rem !important;
+                // }
+                .nav-item:not(.show){
+                    a{
+                        transition: all ease .25s;
+                        color: $fourthColor;
+                        font-weight: bold !important;
+                        text-decoration: none ;
+                    }
+                    border-bottom: none !important;
+                    box-shadow:none !important;
+                    width: auto !important;
+                    text-align: center;
+                    padding: .5rem 1rem;
+                    cursor: pointer;
+                    transition: all ease .15s;
+                    width: 80% !important;
+                    &:hover{
+                        border-radius: 1rem !important;
+                        margin-bottom: 0rem !important;
+                        width: 80% !important;
+                        a{
+                            color: white;
+                            font-weight: bold !important;
+                        }
+                    }
+                }
+
+                .show:not(.no){
+                    margin-bottom: 0rem !important;
+                    width: auto;
+                    height: auto;
+                    @include flexCol();
+                    .nav-link{
+                        text-decoration: none;
+                        div{
+                            margin-left: 0rem !important;
+                            width: 3rem !important;
+                            height: 3rem !important;
+
+                            padding: 1rem !important;
+                            &:hover{
+                                color: white !important;
+                                width: 3rem !important;
+                                height: 3rem !important;
+                                margin-top: 0rem !important;
+                                box-shadow:none !important;
+                                span{
+                                    margin-top: 100% !important;
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    .inner-table{
+        ul{
+            *{font-size: .6rem !important;}
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 1rem;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        transition: all ease .5s !important;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .app-admin-panel{
+        padding: 0rem !important;
+        width: 100% !important;
+        border: none !important;
+        border-radius: 0rem !important;
+        padding-bottom: 1rem !important;
+    }
+
+    .app-admin-panel.selected{
+        transform: none !important;
+    }
+
+    .edit-confirmation,.newUser,.delete-confirmation{
+        width: 100% !important;
+        border-radius: 0rem !important;
+        border: none !important;
+        transform: none !important;
+        top: 0 !important;
+        left: 0 !important;
+        box-shadow: none !important;
+        min-height: 125vh !important;
+        h1{
+            text-align: center !important;
+        }
+        button{
+            width: 63.5% !important;
+        }
+        label{
+            width: 63.5% !important;
+            text-align: center;
+        }
+    }
+
+    .inner-table{
+        ul{
+            padding-right: .5rem !important;
+            padding-left: .5rem !important;
+        }
+        h2{
+            border-radius: 0rem !important;
+            padding: 1rem 0rem !important;
+            padding-top: 1.5rem !important;
+        }
+    }
+
+    .app-main{
+        width: 100% !important;
+    }
+
+    .add-new-user{
+        height: 100% !important;
+        @include flexRow();
+        flex-direction: column !important;
+        width: 90%;
+        font-size: 1rem;
+        bottom: 0;
+        right: 0;
+        transition:all ease .1s;
+        transform: translate(0,0%) !important;
+        margin-top: 2rem !important;
+
+        i{
+            width: 100% !important;
+            min-height: 8vw !important;
+            height: auto !important;
+            font-size: 200% !important;
+            transform: none !important;
+            margin-top: 1rem;
+            border-radius: 1rem !important;
+            padding:1rem !important ;
+        }
+        h4{
+            width: 90% !important;
+            text-align: center !important;
+            border-top: 2px solid rgba(128, 128, 128, 0.397);
+            padding-top: 1rem;
+            font-size: 2rem !important;
+            margin-right: 0rem !important;
+        }
+
+
+    }
+    span{
+        flex-direction: column !important;
+        justify-content: space-evenly !important;
+        .filter-container{
+            width: 90% !important;
+            align-items: flex-start !important;
+            flex-direction: column !important;
+            justify-content: space-between;
+            transform: none !important;
+            margin-top: 1rem;
+            label{
+                margin-bottom: .25rem !important;
+            }
+            select,input,button{
+                margin:0rem 0rem !important;
+                margin-right: 0rem !important;
+                cursor: pointer;
+                border-radius: .5rem !important;
+            }
+            input{
+                zoom: 200%;
+            }
+            select,button{
+                width: 100% !important;
+                text-align: center;
+                font-size: 1.1rem;
+                padding: .25rem .5rem;
+                border: none;
+                option{
+                    text-align: center;
+                    font-size: 1.1rem;
+    
+                }                               
+            }
+            button{
+                transition: all ease .25s;
+                &:hover{
+                    background: rgb(236,114,100);
+                    border-radius: .5rem;
+                }
+            }
+        }
+    }
+
+    .nav-main{
+        margin-bottom:0em !important;
+    }
+    .newUser{
+        h2{
+            margin-bottom: 1rem !important;
+            font-size: 3rem !important;
+            text-align: center;
+        }
+        button{
+            margin: 0rem !important;
+        }
+    }
+}
+
+
+@keyframes dropIn {
+    0%{
+        transform: translateZ(50vw);
+    }
+    90%{
+        transform: translateZ(0vw);
+    }
+    100%{
+        transform: translateZ(0vw);
+    
+    }
+}
+@keyframes outtaFrame {
+    0%{
+        margin-top: 0vh;
+        opacity: 1;
+    }
+    80%{
+        margin-top: 0vh;
+        opacity: 1;
+    }
+    90%{
+        margin-top: 0vh;
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+        margin-top: 200vh;
+    }
+}
+

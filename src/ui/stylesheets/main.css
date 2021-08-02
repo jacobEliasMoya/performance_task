@@ -1,14 +1,1748 @@
-body {
-    background: #f2f2f2;
-    font-family: 'Lato', sans-serif;
-    font-size: .9rem;
-    height: 100%;
-    margin: 0;
+@font-face {
+  font-family: Motor-Oil;
+  src: url("../../assets/fonts/MotorOil1937M54.woff");
 }
 
-.app-admin-panel {
-    min-height: 100vh;
-    background: darkgray;
-    display: flex;
-    justify-content: center;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 2rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-transition: all ease .5s !important;
+  transition: all ease .5s !important;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #3B3E53;
+  height: 5rem;
+  cursor: pointer;
+  border: .25rem solid white;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6E7182;
+}
+
+#root {
+  min-height: 100vh;
+  min-width: 100%;
+  overflow: hidden;
+}
+
+#root .App {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  min-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #3B3E53;
+  -webkit-perspective: 100vw;
+          perspective: 100vw;
+  overflow: hidden;
+}
+
+#root .App .overlay {
+  position: fixed;
+  min-height: 100vh;
+  min-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  top: 0;
+  z-index: 100;
+  background-color: #181818;
+  color: white;
+  font-size: 6vw;
+  -webkit-perspective: 100vw;
+          perspective: 100vw;
+  -webkit-animation: outtaFrame 4.5s 1 forwards;
+          animation: outtaFrame 4.5s 1 forwards;
+  height: inherit;
+}
+
+#root .App .overlay img {
+  position: absolute;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: .03;
+}
+
+#root .App .overlay span {
+  -webkit-transition: all ease .5s;
+  transition: all ease .5s;
+  font-family: Motor-Oil !important;
+  letter-spacing: 1vw;
+  -webkit-transform: translateZ(100vw);
+          transform: translateZ(100vw);
+  -webkit-animation: dropIn 3s 1 forwards;
+          animation: dropIn 3s 1 forwards;
+}
+
+#root .App .overlay .item8, #root .App .overlay .item7 {
+  color: #bbbbbb;
+  font-size: 8vw;
+}
+
+#root .App .nav-main {
+  background: #D5D5D5;
+  border-right: 1rem solid #6E7182;
+  min-height: 100vh;
+  text-transform: uppercase;
+  min-width: 15%;
+}
+
+#root .App .nav-main .container {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+#root .App .nav-main .container .navbar-brand {
+  text-align: center;
+  font-family: Motor-Oil;
+  font-size: 1.75rem;
+  font-weight: 600;
+  background-color: #6E7182;
+  width: 100%;
+  padding: 2rem 0rem;
+  letter-spacing: 6px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+}
+
+#root .App .nav-main .container .navbar-brand span {
+  font-family: Motor-Oil;
+}
+
+#root .App .nav-main .container .navbar-brand .ed {
+  font-size: 2.25rem;
+  color: #3B3E53;
+}
+
+#root .App .nav-main .container .navbar-nav {
+  min-height: 75vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style-type: none;
+  padding-top: .5rem !important;
+}
+
+#root .App .nav-main .container .navbar-nav .nav-item:not(.show) {
+  border-bottom: 0.2rem solid #6E7182;
+  width: 80%;
+  text-align: center;
+  padding: .5rem 1rem;
+  cursor: pointer;
+  -webkit-transition: all ease .15s;
+  transition: all ease .15s;
+}
+
+#root .App .nav-main .container .navbar-nav .nav-item:not(.show) a {
+  -webkit-transition: all ease .25s;
+  transition: all ease .25s;
+  color: #3B3E53;
+  font-weight: bold !important;
+  text-decoration: none;
+}
+
+#root .App .nav-main .container .navbar-nav .nav-item:not(.show):hover {
+  background-color: #6E7182;
+  border-bottom: 0.5rem solid #3B3E53;
+  -webkit-box-shadow: 0 0.5rem 1rem #3B3E53;
+          box-shadow: 0 0.5rem 1rem #3B3E53;
+  margin-bottom: -.3rem;
+  width: 90%;
+}
+
+#root .App .nav-main .container .navbar-nav .nav-item:not(.show):hover a {
+  color: white;
+  font-weight: bold !important;
+}
+
+#root .App .nav-main .container .navbar-nav .show:not(.no) {
+  margin-bottom: 2rem;
+  width: auto;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#root .App .nav-main .container .navbar-nav .show:not(.no) .nav-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-decoration: none;
+}
+
+#root .App .nav-main .container .navbar-nav .show:not(.no) .nav-link div {
+  margin: 0px 1rem;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 5rem;
+  height: 5rem;
+  font-size: 2rem;
+  background: #6E7182;
+  border-radius: 50%;
+  font-family: Motor-Oil;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: all ease .25s;
+  transition: all ease .25s;
+}
+
+#root .App .nav-main .container .navbar-nav .show:not(.no) .nav-link div span {
+  -webkit-transition: all ease .25s;
+  transition: all ease .25s;
+  position: absolute;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  margin-top: 100%;
+  font-size: 70%;
+}
+
+#root .App .nav-main .container .navbar-nav .show:not(.no) .nav-link div:hover {
+  background: #3B3E53;
+  color: rgba(255, 255, 255, 0);
+  width: 5.5rem;
+  height: 5.5rem;
+  margin-top: -.5rem;
+  -webkit-box-shadow: 0 0.5rem 1rem #3B3E53;
+          box-shadow: 0 0.5rem 1rem #3B3E53;
+}
+
+#root .App .nav-main .container .navbar-nav .show:not(.no) .nav-link div:hover span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  margin-top: 0%;
+  color: white;
+}
+
+#root .App .nav-main .container #mobilenavID {
+  display: none;
+}
+
+#root .App .app-main {
+  min-width: 85%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  -webkit-perspective: 100vh;
+          perspective: 100vh;
+}
+
+#root .App .app-main .newUser.selected1 {
+  margin-top: 0vh;
+  -webkit-transform: none;
+          transform: none;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+#root .App .app-main .newUser {
+  z-index: 100;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.97);
+  border-radius: 5rem;
+  border: 2rem solid #6e7182b2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  overflow: hidden;
+  -webkit-transition: all ease .5s;
+  transition: all ease .5s;
+  height: 100%;
+  width: 50%;
+  margin-top: 150vh;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%) rotateX(-90deg);
+          transform: translate(-50%, -50%) rotateX(-90deg);
+  -webkit-box-shadow: 0 3rem 4rem 2rem rgba(0, 0, 0, 0.7);
+          box-shadow: 0 3rem 4rem 2rem rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#root .App .app-main .newUser form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+#root .App .app-main .newUser form label {
+  font-size: 1.25rem;
+}
+
+#root .App .app-main .newUser form label::after {
+  color: red;
+  content: ' *';
+}
+
+#root .App .app-main .newUser form label.error {
+  color: red;
+}
+
+#root .App .app-main .newUser form label.error::after {
+  content: ': Error, enter valid email!';
+}
+
+#root .App .app-main .newUser form label.errorName {
+  color: red;
+}
+
+#root .App .app-main .newUser form label.errorName::after {
+  content: ': Error, enter a name with no numbers';
+}
+
+#root .App .app-main .newUser form label.errorD {
+  color: red;
+}
+
+#root .App .app-main .newUser form label.errorD::after {
+  content: ': Select a district!';
+}
+
+#root .App .app-main .newUser form label.dropdownM::after {
+  content: '';
+}
+
+#root .App .app-main .newUser form .dropdownMuser::after {
+  content: '';
+}
+
+#root .App .app-main .newUser h2 {
+  font-size: 3.5vw;
+  letter-spacing: 6px;
+  color: #3B3E53;
+  font-family: Motor-Oil;
+  padding: 2rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+#root .App .app-main .newUser .idspan {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 63.75%;
+  text-align: left;
+}
+
+#root .App .app-main .newUser .idspan h4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding-bottom: .25rem;
+}
+
+#root .App .app-main .newUser .idspan h4 span {
+  margin-left: 3px;
+}
+
+#root .App .app-main .newUser span {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#root .App .app-main .newUser span button {
+  width: 31%;
+  padding: 1.5rem .75rem;
+  font-size: 1.25rem;
+  border: none;
+  letter-spacing: 3px;
+  -webkit-transition: all ease .25s;
+  transition: all ease .25s;
+  cursor: pointer;
+  color: #3B3E53;
+  margin: 2rem .5rem;
+}
+
+#root .App .app-main .newUser span button:hover {
+  color: black;
+}
+
+#root .App .app-main .newUser span .yes {
+  background: #6bcf6b;
+}
+
+#root .App .app-main .newUser span .yes:hover {
+  background: #a3ffa3;
+}
+
+#root .App .app-main .newUser span .no {
+  background: #ec7264;
+}
+
+#root .App .app-main .newUser span .no:hover {
+  background: #ff968a;
+}
+
+#root .App .app-main .newUser label {
+  font-size: 1.25rem;
+}
+
+#root .App .app-main .newUser label::after {
+  color: red;
+  content: ' *';
+}
+
+#root .App .app-main .newUser label.error {
+  color: red;
+}
+
+#root .App .app-main .newUser label.error::after {
+  content: ': Error, enter valid email!';
+}
+
+#root .App .app-main .newUser label.errorName {
+  color: red;
+}
+
+#root .App .app-main .newUser label.errorName::after {
+  content: ': Error, enter a name with no numbers';
+}
+
+#root .App .app-main .newUser label.errorD {
+  color: red;
+}
+
+#root .App .app-main .newUser label.errorD::after {
+  content: ': Select a district!';
+}
+
+#root .App .app-main .newUser label.dropdownM::after {
+  content: '';
+}
+
+#root .App .app-main .newUser input, #root .App .app-main .newUser select {
+  width: 63.75%;
+  font-size: 1.25rem;
+  padding: .25rem 1rem;
+  margin-bottom: 1rem;
+  -webkit-transition: all ease .25s;
+  transition: all ease .25s;
+  border: none;
+  background-color: #D5D5D5;
+}
+
+#root .App .app-main .newUser input::-webkit-input-placeholder, #root .App .app-main .newUser select::-webkit-input-placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: #adadad;
+}
+
+#root .App .app-main .newUser input:-ms-input-placeholder, #root .App .app-main .newUser select:-ms-input-placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: #adadad;
+}
+
+#root .App .app-main .newUser input::-ms-input-placeholder, #root .App .app-main .newUser select::-ms-input-placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: #adadad;
+}
+
+#root .App .app-main .newUser input::placeholder, #root .App .app-main .newUser select::placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: #adadad;
+}
+
+#root .App .app-main .newUser input:hover, #root .App .app-main .newUser select:hover {
+  background-color: #b3b3b3;
+}
+
+#root .App .app-main .newUser input:hover::-webkit-input-placeholder, #root .App .app-main .newUser select:hover::-webkit-input-placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: black;
+}
+
+#root .App .app-main .newUser input:hover:-ms-input-placeholder, #root .App .app-main .newUser select:hover:-ms-input-placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: black;
+}
+
+#root .App .app-main .newUser input:hover::-ms-input-placeholder, #root .App .app-main .newUser select:hover::-ms-input-placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: black;
+}
+
+#root .App .app-main .newUser input:hover::placeholder, #root .App .app-main .newUser select:hover::placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: black;
+}
+
+#root .App .app-main .app-admin-panel.selected {
+  -webkit-transform: translateZ(-100vh);
+          transform: translateZ(-100vh);
+}
+
+#root .App .app-main .app-admin-panel {
+  margin-bottom: 0vh;
+  padding: 1rem;
+  background: #D5D5D5;
+  border: 2rem solid #6E7182;
+  border-radius: 5rem;
+  width: 90%;
+  -webkit-transition: all ease .5s;
+  transition: all ease .5s;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table {
+  width: 100%;
+  -webkit-transition: all ease .5s;
+  transition: all ease .5s;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table {
+  position: relative;
+  -webkit-transition: all ease .5s;
+  transition: all ease .5s;
+  -webkit-perspective: 100vh;
+          perspective: 100vh;
+  padding: 1rem;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table span {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table span .filter-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transform: translate(0, 50%);
+          transform: translate(0, 50%);
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table span .filter-container select, #root .App .app-main .app-admin-panel .admin-user-table .inner-table span .filter-container input, #root .App .app-main .app-admin-panel .admin-user-table .inner-table span .filter-container button {
+  margin: 0rem 1rem;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table span .filter-container select, #root .App .app-main .app-admin-panel .admin-user-table .inner-table span .filter-container button {
+  width: auto;
+  text-align: center;
+  font-size: 1.1rem;
+  padding: .25rem .5rem;
+  border: none;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table span .filter-container select option, #root .App .app-main .app-admin-panel .admin-user-table .inner-table span .filter-container button option {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table span .filter-container button {
+  -webkit-transition: all ease .25s;
+  transition: all ease .25s;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table span .filter-container button:hover {
+  background: #ec7264;
+  border-radius: .5rem;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table span .add-new-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-size: 1rem;
+  bottom: 0;
+  right: 0;
+  -webkit-transition: all ease .1s;
+  transition: all ease .1s;
+  -webkit-transform: translate(0%, 40%);
+          transform: translate(0%, 40%);
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table span .add-new-user i {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #6f6fff;
+  color: white;
+  -webkit-transition: all ease .25s;
+  transition: all ease .25s;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table span .add-new-user i:hover {
+  font-size: 1.25rem;
+  background: #4040fd;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table span .add-new-user h4 {
+  font-family: Motor-Oil;
+  margin-right: 1rem;
+  color: #3B3E53;
+  -webkit-transition: all ease .25s;
+  transition: all ease .25s;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table span .add-new-user:hover h4 {
+  font-size: 1.25rem;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table h2 {
+  width: 100%;
+  background: #6E7182;
+  font-size: 2.5rem;
+  letter-spacing: 6px;
+  color: white;
+  font-family: Motor-Oil;
+  padding: 2rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation {
+  z-index: 100;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.97);
+  border-radius: 5rem;
+  border: 2rem solid #6e7182b2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  overflow: hidden;
+  -webkit-transition: all ease .5s;
+  transition: all ease .5s;
+  height: 60%;
+  width: 70%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+          transform: translate(-50%, -50%) rotateX(90deg);
+  margin-top: -200vh !important;
+  -webkit-box-shadow: 0 5rem 5rem 2rem rgba(0, 0, 0, 0.7);
+          box-shadow: 0 5rem 5rem 2rem rgba(0, 0, 0, 0.7);
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation span, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation span {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation span button, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation span button {
+  width: 31%;
+  padding: 1.5rem .75rem;
+  font-size: 1.25rem;
+  border: none;
+  letter-spacing: 3px;
+  -webkit-transition: all ease .25s;
+  transition: all ease .25s;
+  cursor: pointer;
+  color: #3B3E53;
+  margin: 0rem .5rem;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation span button:hover, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation span button:hover {
+  color: black;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation span .yes, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation span .yes {
+  background: #6bcf6b;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation span .yes:hover, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation span .yes:hover {
+  background: #a3ffa3;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation span .no, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation span .no {
+  background: #ec7264;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation span .no:hover, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation span .no:hover {
+  background: #ff968a;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation label, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation label {
+  font-size: 1.25rem;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation label::after, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation label::after {
+  color: red;
+  content: ' *';
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation label.error, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation label.error {
+  color: red;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation label.error::after, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation label.error::after {
+  content: ': Error, enter valid email!';
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation label.errorName, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation label.errorName {
+  color: red;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation label.errorName::after, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation label.errorName::after {
+  content: ': Error, enter a name with no numbers';
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation label.errorD, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation label.errorD {
+  color: red;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation label.errorD::after, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation label.errorD::after {
+  content: ': Select a district!';
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation label.dropdownM::after, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation label.dropdownM::after {
+  content: '';
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation input, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation select, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation input, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation select {
+  width: 63.75%;
+  font-size: 1.25rem;
+  padding: .25rem 1rem;
+  margin-bottom: 1rem;
+  -webkit-transition: all ease .25s;
+  transition: all ease .25s;
+  border: none;
+  background-color: #D5D5D5;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation input::-webkit-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation select::-webkit-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation input::-webkit-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation select::-webkit-input-placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: #adadad;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation input:-ms-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation select:-ms-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation input:-ms-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation select:-ms-input-placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: #adadad;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation input::-ms-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation select::-ms-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation input::-ms-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation select::-ms-input-placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: #adadad;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation input::placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation select::placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation input::placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation select::placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: #adadad;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation input:hover, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation select:hover, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation input:hover, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation select:hover {
+  background-color: #b3b3b3;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation input:hover::-webkit-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation select:hover::-webkit-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation input:hover::-webkit-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation select:hover::-webkit-input-placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: black;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation input:hover:-ms-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation select:hover:-ms-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation input:hover:-ms-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation select:hover:-ms-input-placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: black;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation input:hover::-ms-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation select:hover::-ms-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation input:hover::-ms-input-placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation select:hover::-ms-input-placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: black;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation input:hover::placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation .newInformation select:hover::placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation input:hover::placeholder, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation .newInformation select:hover::placeholder {
+  font-size: 1rem;
+  text-align: center;
+  color: black;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .delete-confirmation.selected, #root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation.selected {
+  opacity: 1;
+  height: 60%;
+  width: 70%;
+  margin-top: 0vh !important;
+  -webkit-transform: translate(-50%, -50%) translateZ(50vh);
+          transform: translate(-50%, -50%) translateZ(50vh);
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table .edit-confirmation {
+  height: 90% !important;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul {
+  width: 100%;
+  max-height: 60vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding-right: 2rem;
+  -webkit-transition: all ease .5s;
+  transition: all ease .5s;
+  position: relative;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .li.one {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .li.one div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  padding: 1rem 0rem;
+  text-align: center;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .user-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition: all ease .25s;
+  transition: all ease .25s;
+  margin-bottom: 1.5rem;
+  background: white;
+  padding-top: 0rem !important;
+  -webkit-transition: all ease .5s;
+  transition: all ease .5s;
+  overflow: hidden;
+  height: auto;
+  z-index: 1;
+  position: relative;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .user-data:hover {
+  background: #dbeeff;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .user-data::after {
+  -webkit-transition-delay: .25s !important;
+          transition-delay: .25s !important;
+  -webkit-transition: all ease 0s !important;
+  transition: all ease 0s !important;
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  padding: .25rem .5rem;
+  border-radius: 1rem;
+  background-color: #adf1ad;
+  content: 'Edited';
+  -webkit-transform: translate(5%, 15%);
+          transform: translate(5%, 15%);
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .user-data div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  position: relative;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .user-data div div {
+  padding: 1.5vh 0rem;
+  width: 100%;
+  text-align: center;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .user-data .control-buttons {
+  height: auto;
+  padding: 0rem 0rem;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .user-data .control-buttons button {
+  width: 80%;
+  padding: .5rem .75rem;
+  font-size: 1.25rem;
+  border: none;
+  letter-spacing: 3px;
+  -webkit-transition: all ease .25s;
+  transition: all ease .25s;
+  cursor: pointer;
+  color: #3B3E53;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .user-data .control-buttons button:hover {
+  color: black;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .user-data .control-buttons .edit {
+  background: #6bcf6b;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .user-data .control-buttons .edit:hover {
+  background: #a3ffa3;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .user-data .control-buttons .del {
+  background: #ec7264;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .user-data .control-buttons .del:hover {
+  background: #ff968a;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .non-display {
+  min-height: 0rem;
+  max-height: 0rem;
+  height: 0px !important;
+  margin-bottom: 0rem;
+  opacity: 0;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .non-display2 {
+  min-height: 0rem;
+  max-height: 0rem;
+  height: 0px !important;
+  margin-bottom: 0rem;
+  opacity: 0;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .to-be-deleted, #root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .to-be-edited {
+  opacity: 1;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .deleted, #root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .edited {
+  opacity: 0;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .gogreen {
+  position: relative;
+  overflow: visible;
+}
+
+#root .App .app-main .app-admin-panel .admin-user-table .inner-table ul .gogreen::after {
+  opacity: 0;
+  -webkit-transition: all ease 0s !important;
+  transition: all ease 0s !important;
+  -webkit-transition-delay: .5s !important;
+          transition-delay: .5s !important;
+}
+
+@media only screen and (max-width: 1200px) {
+  #mobilenavID {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  .shrink.squished {
+    min-height: 0px !important;
+    height: 0px !important;
+    overflow: hidden;
+    padding: 0rem 0rem !important;
+  }
+  .shrink.squished a {
+    display: none;
+  }
+  .edit-confirmation, .newUser, .delete-confirmation {
+    width: 100% !important;
+  }
+  .edit-confirmation h1, .newUser h1, .delete-confirmation h1 {
+    text-align: center !important;
+  }
+  .newUser {
+    height: auto !important;
+    width: 80% !important;
+  }
+  .inner-table {
+    padding: 0rem !important;
+  }
+  .inner-table ul {
+    padding-right: 1rem !important;
+  }
+  .inner-table h2 {
+    text-align: center !important;
+    padding: 1rem !important;
+    padding-bottom: .5rem !important;
+  }
+  .app-main {
+    width: 100% !important;
+  }
+  .add-new-user {
+    height: 100% !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    flex-direction: column !important;
+    width: 30%;
+    font-size: 1rem;
+    bottom: 0;
+    right: 0;
+    -webkit-transition: all ease .1s;
+    transition: all ease .1s;
+    -webkit-transform: translate(0, 0%) !important;
+            transform: translate(0, 0%) !important;
+    margin-top: 1rem !important;
+  }
+  .add-new-user i {
+    width: 70% !important;
+    height: 8vw !important;
+    font-size: 200% !important;
+    -webkit-transform: none !important;
+            transform: none !important;
+    margin-top: 2rem;
+    border-radius: 1rem !important;
+  }
+  .add-new-user h4 {
+    font-size: 2vw !important;
+    margin-right: 0rem !important;
+  }
+  span {
+    -webkit-box-pack: space-evenly !important;
+        -ms-flex-pack: space-evenly !important;
+            justify-content: space-evenly !important;
+  }
+  span .filter-container {
+    width: 60% !important;
+    -webkit-box-align: start !important;
+        -ms-flex-align: start !important;
+            align-items: flex-start !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-transform: none !important;
+            transform: none !important;
+    margin-top: 1rem;
+  }
+  span .filter-container label {
+    margin-bottom: .25rem !important;
+  }
+  span .filter-container select, span .filter-container input, span .filter-container button {
+    margin: 0rem 0rem !important;
+    margin-right: 0rem !important;
+    cursor: pointer;
+    border-radius: .5rem !important;
+  }
+  span .filter-container input {
+    zoom: 200%;
+  }
+  span .filter-container select, span .filter-container button {
+    width: 100% !important;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: .25rem .5rem;
+    border: none;
+  }
+  span .filter-container select option, span .filter-container button option {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  span .filter-container button {
+    -webkit-transition: all ease .25s;
+    transition: all ease .25s;
+  }
+  span .filter-container button:hover {
+    background: #ec7264;
+    border-radius: .5rem;
+  }
+  .App {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
+            justify-content: flex-start !important;
+  }
+  .nav-main {
+    border-right: none !important;
+    min-height: 0vh !important;
+    min-width: 100% !important;
+    margin-bottom: 3rem !important;
+  }
+  .nav-main .container {
+    min-height: 0vh !important;
+  }
+  .nav-main .container .navbar-brand {
+    width: 100% !important;
+    font-size: 1.25rem !important;
+    padding: 1rem !important;
+    padding-left: 1.5rem !important;
+  }
+  .nav-main .container .navbar-nav {
+    padding: 0rem 1rem !important;
+    padding-bottom: .5rem !important;
+    min-height: 0vh !important;
+  }
+  .nav-main .container .navbar-nav .nav-item:not(.show) {
+    border-bottom: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    width: auto !important;
+    text-align: center;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    -webkit-transition: all ease .15s;
+    transition: all ease .15s;
+    width: 80% !important;
+  }
+  .nav-main .container .navbar-nav .nav-item:not(.show) a {
+    -webkit-transition: all ease .25s;
+    transition: all ease .25s;
+    color: #3B3E53;
+    font-weight: bold !important;
+    text-decoration: none;
+  }
+  .nav-main .container .navbar-nav .nav-item:not(.show):hover {
+    border-radius: 1rem !important;
+    margin-bottom: 0rem !important;
+    width: 80% !important;
+  }
+  .nav-main .container .navbar-nav .nav-item:not(.show):hover a {
+    color: white;
+    font-weight: bold !important;
+  }
+  .nav-main .container .navbar-nav .show:not(.no) {
+    margin-bottom: 0rem !important;
+    width: auto;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .nav-main .container .navbar-nav .show:not(.no) .nav-link {
+    text-decoration: none;
+  }
+  .nav-main .container .navbar-nav .show:not(.no) .nav-link div {
+    margin-left: 0rem !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    padding: 1rem !important;
+  }
+  .nav-main .container .navbar-nav .show:not(.no) .nav-link div:hover {
+    color: white !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    margin-top: 0rem !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+  }
+  .nav-main .container .navbar-nav .show:not(.no) .nav-link div:hover span {
+    margin-top: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .inner-table ul * {
+    font-size: .6rem !important;
+  }
+  ::-webkit-scrollbar {
+    width: 1rem;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    -webkit-transition: all ease .5s !important;
+    transition: all ease .5s !important;
+    background-color: white;
+    cursor: pointer;
+  }
+  .app-admin-panel {
+    padding: 0rem !important;
+    width: 100% !important;
+    border: none !important;
+    border-radius: 0rem !important;
+    padding-bottom: 1rem !important;
+  }
+  .app-admin-panel.selected {
+    -webkit-transform: none !important;
+            transform: none !important;
+  }
+  .edit-confirmation, .newUser, .delete-confirmation {
+    width: 100% !important;
+    border-radius: 0rem !important;
+    border: none !important;
+    -webkit-transform: none !important;
+            transform: none !important;
+    top: 0 !important;
+    left: 0 !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    min-height: 125vh !important;
+  }
+  .edit-confirmation h1, .newUser h1, .delete-confirmation h1 {
+    text-align: center !important;
+  }
+  .edit-confirmation button, .newUser button, .delete-confirmation button {
+    width: 63.5% !important;
+  }
+  .edit-confirmation label, .newUser label, .delete-confirmation label {
+    width: 63.5% !important;
+    text-align: center;
+  }
+  .inner-table ul {
+    padding-right: .5rem !important;
+    padding-left: .5rem !important;
+  }
+  .inner-table h2 {
+    border-radius: 0rem !important;
+    padding: 1rem 0rem !important;
+    padding-top: 1.5rem !important;
+  }
+  .app-main {
+    width: 100% !important;
+  }
+  .add-new-user {
+    height: 100% !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    flex-direction: column !important;
+    width: 90%;
+    font-size: 1rem;
+    bottom: 0;
+    right: 0;
+    -webkit-transition: all ease .1s;
+    transition: all ease .1s;
+    -webkit-transform: translate(0, 0%) !important;
+            transform: translate(0, 0%) !important;
+    margin-top: 2rem !important;
+  }
+  .add-new-user i {
+    width: 100% !important;
+    min-height: 8vw !important;
+    height: auto !important;
+    font-size: 200% !important;
+    -webkit-transform: none !important;
+            transform: none !important;
+    margin-top: 1rem;
+    border-radius: 1rem !important;
+    padding: 1rem !important;
+  }
+  .add-new-user h4 {
+    width: 90% !important;
+    text-align: center !important;
+    border-top: 2px solid rgba(128, 128, 128, 0.397);
+    padding-top: 1rem;
+    font-size: 2rem !important;
+    margin-right: 0rem !important;
+  }
+  span {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    -webkit-box-pack: space-evenly !important;
+        -ms-flex-pack: space-evenly !important;
+            justify-content: space-evenly !important;
+  }
+  span .filter-container {
+    width: 90% !important;
+    -webkit-box-align: start !important;
+        -ms-flex-align: start !important;
+            align-items: flex-start !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-transform: none !important;
+            transform: none !important;
+    margin-top: 1rem;
+  }
+  span .filter-container label {
+    margin-bottom: .25rem !important;
+  }
+  span .filter-container select, span .filter-container input, span .filter-container button {
+    margin: 0rem 0rem !important;
+    margin-right: 0rem !important;
+    cursor: pointer;
+    border-radius: .5rem !important;
+  }
+  span .filter-container input {
+    zoom: 200%;
+  }
+  span .filter-container select, span .filter-container button {
+    width: 100% !important;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: .25rem .5rem;
+    border: none;
+  }
+  span .filter-container select option, span .filter-container button option {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  span .filter-container button {
+    -webkit-transition: all ease .25s;
+    transition: all ease .25s;
+  }
+  span .filter-container button:hover {
+    background: #ec7264;
+    border-radius: .5rem;
+  }
+  .nav-main {
+    margin-bottom: 0em !important;
+  }
+  .newUser h2 {
+    margin-bottom: 1rem !important;
+    font-size: 3rem !important;
+    text-align: center;
+  }
+  .newUser button {
+    margin: 0rem !important;
+  }
+}
+
+@-webkit-keyframes dropIn {
+  0% {
+    -webkit-transform: translateZ(50vw);
+            transform: translateZ(50vw);
+  }
+  90% {
+    -webkit-transform: translateZ(0vw);
+            transform: translateZ(0vw);
+  }
+  100% {
+    -webkit-transform: translateZ(0vw);
+            transform: translateZ(0vw);
+  }
+}
+
+@keyframes dropIn {
+  0% {
+    -webkit-transform: translateZ(50vw);
+            transform: translateZ(50vw);
+  }
+  90% {
+    -webkit-transform: translateZ(0vw);
+            transform: translateZ(0vw);
+  }
+  100% {
+    -webkit-transform: translateZ(0vw);
+            transform: translateZ(0vw);
+  }
+}
+
+@-webkit-keyframes outtaFrame {
+  0% {
+    margin-top: 0vh;
+    opacity: 1;
+  }
+  80% {
+    margin-top: 0vh;
+    opacity: 1;
+  }
+  90% {
+    margin-top: 0vh;
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    margin-top: 200vh;
+  }
+}
+
+@keyframes outtaFrame {
+  0% {
+    margin-top: 0vh;
+    opacity: 1;
+  }
+  80% {
+    margin-top: 0vh;
+    opacity: 1;
+  }
+  90% {
+    margin-top: 0vh;
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    margin-top: 200vh;
+  }
+}
+/*# sourceMappingURL=main.css.map */
